@@ -20,16 +20,7 @@ def loadWords():
 def isWord(wordList, word):
     """
     Determines if word is a valid word.
-
-    wordList: list of words in the dictionary.
-    word: a possible word.
     returns True if word is in wordList.
-
-    Example:
-    >>> isWord(wordList, 'bat') returns
-    True
-    >>> isWord(wordList, 'asdf') returns
-    False
     """
     word = word.lower()
     word = word.strip(" !@#$%^&*()-_+={}[]|\\:;'<>?,./\"")
@@ -38,18 +29,12 @@ def isWord(wordList, word):
 def randomWord(wordList):
     """
     Returns a random word.
-
-    wordList: list of words  
-    returns: a word from wordList at random
     """
     return random.choice(wordList)
 
 def randomString(wordList, n):
     """
     Returns a string containing n random words from wordList
-
-    wordList: list of words
-    returns: a string of random words separated by spaces.
     """
     return " ".join([randomWord(wordList) for _ in range(n)])
 
@@ -58,13 +43,7 @@ def randomScrambled(wordList, n):
     Generates a test string by generating an n-word random string
     and encrypting it with a sequence of random shifts.
 
-    wordList: list of words
     n: number of random words to generate and scamble
-    returns: a scrambled string of n random words
-
-    NOTE:
-    This function will ONLY work once you have completed your
-    implementation of applyShifts!
     """
     s = randomString(wordList, n) + " "
     shifts = [(i, random.randint(0, 25)) for i in range(len(s)) if s[i-1] == ' ']
@@ -166,11 +145,6 @@ def findBestShift(wordList, text):
 
 def decryptStory():
     """
-    Using the methods you created in this problem set,
-    decrypt the story given by the function getStoryString().
-    Use the functions getStoryString and loadWords to get the
-    raw data you need.
-
     returns: string - story in plain text
     """
     story = getStoryString()
